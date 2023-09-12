@@ -1,0 +1,50 @@
+			local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+			local Window = OrionLib:MakeWindow({Name = "自动抽蛋", HidePremium = false, SaveConfig = true, ConfigFolder = "龙魂给我低调点"})
+			_G.hatch = true
+	_G.swing = ture
+function hatch()
+				while _G.hatch == true do  
+local args = {
+    [1] = "Egg4"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Luck"):WaitForChild("[C-S]DoLuck"):InvokeServer(unpack(args))
+	
+			
+				wait(0.0000001)
+			   end
+			end
+ function swing()
+				while _G.swing == true do  
+local args = {
+    [1] = game:GetService("Players"):WaitForChild("GPT89757"),
+    [2] = 0.9622345731769966
+}
+
+game:GetService("Players").LocalPlayer:WaitForChild("RemoteEvent"):FireServer(unpack(args))
+	
+			
+				wait(0.0000001)
+			   end
+			end
+local hatchTab = Window:MakeTab({
+				Name = "抽蛋",
+				Icon = "rbxassetid://4483345998",
+				PremiumOnly = false
+			})
+hatchTab:AddToggle({
+				Name = "自动抽蛋",
+				Default = false,
+				Callback = function(Value)
+					_G.hatch = Value
+					hatch()
+				end    
+			})
+hatchTab:AddToggle({
+				Name = "自动挥剑",
+				Default = false,
+				Callback = function(Value)
+					_G.swing = Value
+					swing()
+				end    
+			})
